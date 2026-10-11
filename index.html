@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshatstudy - Class 10 UP Board</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f6ff;color:#222}
+header{background:#123c91;color:white;text-align:center;padding:25px 12px}
+header h1{margin:0;font-size:32px}
+header p{margin-bottom:0}
+nav{background:#09275e;padding:13px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold}
+.hero{padding:25px 15px;text-align:center;background:#dce8ff}
+.hero h2{color:#123c91}
+.search{width:90%;max-width:450px;padding:13px;border:1px solid #aaa;border-radius:8px;font-size:16px}
+.container{padding:20px;max-width:1000px;margin:auto}
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px}
+.card{background:white;padding:20px 10px;text-align:center;border-radius:12px;box-shadow:0 3px 10px #0001}
+.card h3{color:#123c91}
+button{background:#1456c0;color:white;border:0;padding:10px 15px;border-radius:7px;font-size:15px;cursor:pointer}
+.section{background:white;margin-top:20px;padding:20px;border-radius:12px}
+.section h2{color:#123c91}
+li{margin:12px 0}
+footer{background:#09275e;color:white;text-align:center;padding:20px;margin-top:25px}
+a{color:#1456c0}
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<header>
+<h1>📚 Akshatstudy</h1>
+<p>Class 10 UP Board Study Website</p>
+<p>पढ़ाई आसान, सफलता शानदार!</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#subjects">Subjects</a>
+<a href="#notes">Notes</a>
+<a href="#about">About</a>
+</nav>
+
+<div class="hero" id="home">
+<h2>कक्षा 10 की तैयारी यहाँ से शुरू करें!</h2>
+<p>UP Board के विद्यार्थियों के लिए स्टडी वेबसाइट</p>
+<input class="search" id="search" placeholder="विषय खोजें..." oninput="searchSubjects()">
+</div>
+
+<div class="container">
+<h2 id="subjects">📖 हमारे विषय (Subjects)</h2>
+
+<div class="subjects" id="subjectList">
+<div class="card" data-name="hindi हिंदी">
+<h3>📕 हिंदी</h3>
+<p>हिंदी साहित्य एवं व्याकरण</p>
+<button onclick="showSubject('hindi')">पढ़ें</button>
+</div>
+
+<div class="card" data-name="english अंग्रेजी">
+<h3>📘 English</h3>
+<p>Grammar एवं Literature</p>
+<button onclick="showSubject('english')">पढ़ें</button>
+</div>
+
+<div class="card" data-name="maths गणित">
+<h3>📐 गणित</h3>
+<p>सूत्र एवं प्रश्न</p>
+<button onclick="showSubject('maths')">पढ़ें</button>
+</div>
+
+<div class="card" data-name="science विज्ञान">
+<h3>🔬 विज्ञान</h3>
+<p>भौतिक, रसायन, जीव विज्ञान</p>
+<button onclick="showSubject('science')">पढ़ें</button>
+</div>
+
+<div class="card" data-name="social science सामाजिक विज्ञान">
+<h3>🌍 सामाजिक विज्ञान</h3>
+<p>इतिहास, भूगोल, नागरिक शास्त्र</p>
+<button onclick="showSubject('social')">पढ़ें</button>
+</div>
+</div>
+
+<div class="section" id="subjectContent">
+<h2>🎯 पढ़ाई कैसे करें?</h2>
+<p>ऊपर दिए गए किसी भी विषय पर क्लिक करके पढ़ाई शुरू करें।</p>
+</div>
+
+<div class="section" id="notes">
+<h2>📝 जरूरी जानकारी</h2>
+<ul>
+<li>रोजाना सभी विषयों की पढ़ाई करें।</li>
+<li>महत्वपूर्ण प्रश्नों का नियमित अभ्यास करें।</li>
+<li>पिछले वर्षों के प्रश्नपत्र हल करें।</li>
+<li>परीक्षा से पहले पाठ्यक्रम जरूर जाँचें।</li>
+</ul>
+</div>
+
+<div class="section" id="about">
+<h2>हमारे बारे में</h2>
+<p>Akshatstudy कक्षा 10 UP Board के विद्यार्थियों की पढ़ाई में मदद करने के लिए बनाई जा रही वेबसाइट है।</p>
+<p>यह वेबसाइट विद्यार्थियों को नोट्स, प्रश्न और परीक्षा की तैयारी की सामग्री उपलब्ध कराने के लिए है।</p>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Akshatstudy</p>
+<p>Class 10 UP Board Study Website</p>
+</footer>
+
+<script>
+function searchSubjects(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.card').forEach(card=>{
+card.style.display=card.dataset.name.includes(q)?'block':'none';
+});
+}
+function showSubject(subject){
+let data={
+hindi:['हिंदी','हिंदी साहित्य, व्याकरण और लेखन का अभ्यास करें।'],
+english:['English','Grammar, prose, poetry और writing का अभ्यास करें।'],
+maths:['गणित','वास्तविक संख्याएँ, बहुपद, त्रिकोणमिति और अन्य अध्यायों की तैयारी करें।'],
+science:['विज्ञान','रसायन विज्ञान, भौतिक विज्ञान और जीव विज्ञान की तैयारी करें।'],
+social:['सामाजिक विज्ञान','इतिहास, भूगोल, नागरिक शास्त्र और अर्थशास्त्र पढ़ें।']
+};
+let item=data[subject];
+document.getElementById('subjectContent').innerHTML=
+'<h2>'+item[0]+'</h2><p>'+item[1]+'</p><p>अध्यायवार नोट्स और प्रश्न जल्द जोड़े जाएंगे।</p>';
+document.getElementById('subjectContent').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
